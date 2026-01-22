@@ -114,6 +114,23 @@ void reserve(int x)
 	}
 } 
 
+
+void display()
+{
+	stream = begin;
+	while (stream)
+	{
+		printf("\n\n Passport Number : %-6s", stream->passport);
+		printf("\n         name : %-15s", stream->name);
+		printf("\n      email address: %-15s", stream->email);
+		printf("\n      Seat number: A-%d", stream->seat_num);
+        printf("\n     Destination:%-15s", stream->destination);
+		printf("\n\n++*=====================================================*++");
+		stream = stream->following;
+	}
+
+}
+
 void savefile()
 {
 	FILE *fpointer = fopen("mufti records", "w");
@@ -135,22 +152,6 @@ void savefile()
 	}
 	printf("\n\n\t Details have been saved to a file");
 	fclose(fpointer);
-}
-
-void display()
-{
-	stream = begin;
-	while (stream)
-	{
-		printf("\n\n Passport Number : %-6s", stream->passport);
-		printf("\n         name : %-15s", stream->name);
-		printf("\n      email address: %-15s", stream->email);
-		printf("\n      Seat number: A-%d", stream->seat_num);
-        printf("\n     Destination:%-15s", stream->destination);
-		printf("\n\n++*=====================================================*++");
-		stream = stream->following;
-	}
-
 }
 
 void cancel()
